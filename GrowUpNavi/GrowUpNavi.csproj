@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -166,6 +168,22 @@
     <Compile Include="Models\Biz\AppBiz.cs" />
     <Compile Include="Models\Biz\InfoBiz.cs" />
     <Compile Include="Models\Biz\ManageBiz.cs" />
+    <Compile Include="Models\Entity\GrowUpNaviDB.cs" />
+    <Compile Include="Models\Entity\M_Busho.cs" />
+    <Compile Include="Models\Entity\M_GentaiKbn.cs" />
+    <Compile Include="Models\Entity\M_HyokaGroup.cs" />
+    <Compile Include="Models\Entity\M_HyoshoKbn.cs" />
+    <Compile Include="Models\Entity\M_MokuhyoSbt.cs" />
+    <Compile Include="Models\Entity\M_Sex.cs" />
+    <Compile Include="Models\Entity\M_Shain.cs" />
+    <Compile Include="Models\Entity\M_ShoshinKokaku.cs" />
+    <Compile Include="Models\Entity\M_SosaKbn.cs" />
+    <Compile Include="Models\Entity\M_Yakushoku.cs" />
+    <Compile Include="Models\Entity\T_HyoshoRireki.cs" />
+    <Compile Include="Models\Entity\T_MokuhyoTasseiHyoka.cs" />
+    <Compile Include="Models\Entity\T_PasswdHenkoRireki.cs" />
+    <Compile Include="Models\Entity\T_ShoshinKokakuRireki.cs" />
+    <Compile Include="Models\Entity\T_SosaRireki.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\App\ReportViewModel.cs" />
@@ -253,7 +271,6 @@
     <Folder Include="Controllers\Filters\" />
     <Folder Include="Models\Dao\AdhocQuery\" />
     <Folder Include="Models\Dao\Linq\" />
-    <Folder Include="Models\Entity\" />
     <Folder Include="Utilities\" />
     <Folder Include="ViewModels\Varidator\" />
   </ItemGroup>
