@@ -148,6 +148,16 @@ namespace GrowUpNavi.Models.Entity
                 .IsUnicode(false);
 
             modelBuilder.Entity<M_HyoshoKbn>()
+                .Property(e => e.SosetsuNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_HyoshoKbn>()
+                .Property(e => e.HaishiNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_HyoshoKbn>()
                 .Property(e => e.DelFlg)
                 .IsFixedLength()
                 .IsUnicode(false);

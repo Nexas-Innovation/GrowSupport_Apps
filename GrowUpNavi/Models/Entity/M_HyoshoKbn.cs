@@ -21,6 +21,13 @@ namespace GrowUpNavi.Models.Entity
         [StringLength(20)]
         public string Meisho { get; set; }
 
+        [Required]
+        [StringLength(4)]
+        public string SosetsuNendo { get; set; }
+
+        [StringLength(4)]
+        public string HaishiNendo { get; set; }
+
         public int DisplayOrder { get; set; }
 
         [Required]
