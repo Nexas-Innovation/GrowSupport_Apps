@@ -10,7 +10,7 @@ namespace GrowUpNavi.Models.Entity
     {
         public M_HyokaGroup()
         {
-            T_MokuhyoTasseiHyoka = new HashSet<T_MokuhyoTasseiHyoka>();
+            T_MokuhyoTasseidoHyoka = new HashSet<T_MokuhyoTasseidoHyoka>();
         }
 
         [Key]
@@ -34,8 +34,8 @@ namespace GrowUpNavi.Models.Entity
         public string DelFlg { get; set; }
 
         [Required]
-        [StringLength(4)]
-        public string CrtKojinCd { get; set; }
+        [StringLength(3)]
+        public string CrtShainCd { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime CrtDt { get; set; }
@@ -45,11 +45,11 @@ namespace GrowUpNavi.Models.Entity
         public string CrtPlgId { get; set; }
 
         [Required]
-        [StringLength(4)]
-        public string LastUpdKojinCd { get; set; }
+        [StringLength(3)]
+        public string LastUpdShainCd { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime LastUpdKojinDt { get; set; }
+        public DateTime LastUpdDt { get; set; }
 
         [Required]
         [StringLength(10)]
@@ -60,6 +60,6 @@ namespace GrowUpNavi.Models.Entity
         [Timestamp]
         public byte[] RowVersion { get; set; }
 
-        public virtual ICollection<T_MokuhyoTasseiHyoka> T_MokuhyoTasseiHyoka { get; set; }
+        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka { get; set; }
     }
 }

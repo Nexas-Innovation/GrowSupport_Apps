@@ -35,8 +35,8 @@ namespace GrowUpNavi.Models.Entity
         public string DelFlg { get; set; }
 
         [Required]
-        [StringLength(4)]
-        public string CrtKojinCd { get; set; }
+        [StringLength(3)]
+        public string CrtShainCd { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime CrtDt { get; set; }
@@ -46,11 +46,11 @@ namespace GrowUpNavi.Models.Entity
         public string CrtPlgId { get; set; }
 
         [Required]
-        [StringLength(4)]
-        public string LastUpdKojinCd { get; set; }
+        [StringLength(3)]
+        public string LastUpdShainCd { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime LastUpdKojinDt { get; set; }
+        public DateTime LastUpdDt { get; set; }
 
         [Required]
         [StringLength(10)]

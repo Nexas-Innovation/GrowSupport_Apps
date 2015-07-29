@@ -6,11 +6,11 @@ namespace GrowUpNavi.Models.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class T_MokuhyoTasseiHyoka
+    public partial class T_MokuhyoTasseidoHyoka
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(4)]
+        [StringLength(3)]
         public string ShainCd { get; set; }
 
         [Key]
@@ -67,13 +67,13 @@ namespace GrowUpNavi.Models.Entity
         [StringLength(4)]
         public string DisplayOrder { get; set; }
 
-        [StringLength(4)]
+        [StringLength(3)]
         public string Hyokasha1Cd { get; set; }
 
         [StringLength(1000)]
         public string Hyokasha1Comment { get; set; }
 
-        [StringLength(4)]
+        [StringLength(3)]
         public string Hyokasha2Cd { get; set; }
 
         [StringLength(1000)]
@@ -84,8 +84,8 @@ namespace GrowUpNavi.Models.Entity
         public string DelFlg { get; set; }
 
         [Required]
-        [StringLength(4)]
-        public string CrtKojinCd { get; set; }
+        [StringLength(3)]
+        public string CrtShainCd { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime CrtDt { get; set; }
@@ -95,11 +95,11 @@ namespace GrowUpNavi.Models.Entity
         public string CrtPlgId { get; set; }
 
         [Required]
-        [StringLength(4)]
-        public string LastUpdKojinCd { get; set; }
+        [StringLength(3)]
+        public string LastUpdShainCd { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime LastUpdKojinDt { get; set; }
+        public DateTime LastUpdDt { get; set; }
 
         [Required]
         [StringLength(10)]

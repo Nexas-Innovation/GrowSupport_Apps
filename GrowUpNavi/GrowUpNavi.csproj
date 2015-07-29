@@ -178,9 +178,10 @@
     <Compile Include="Models\Entity\M_Shain.cs" />
     <Compile Include="Models\Entity\M_ShoshinKokaku.cs" />
     <Compile Include="Models\Entity\M_SosaKbn.cs" />
+    <Compile Include="Models\Entity\M_SystemAuthKbn.cs" />
     <Compile Include="Models\Entity\M_Yakushoku.cs" />
     <Compile Include="Models\Entity\T_HyoshoRireki.cs" />
-    <Compile Include="Models\Entity\T_MokuhyoTasseiHyoka.cs" />
+    <Compile Include="Models\Entity\T_MokuhyoTasseidoHyoka.cs" />
     <Compile Include="Models\Entity\T_PasswdHenkoRireki.cs" />
     <Compile Include="Models\Entity\T_ShoshinKokakuRireki.cs" />
     <Compile Include="Models\Entity\T_SosaRireki.cs" />

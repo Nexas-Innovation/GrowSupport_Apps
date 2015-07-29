@@ -13,7 +13,7 @@ namespace GrowUpNavi.Models.Entity
         public long SeqNo { get; set; }
 
         [Required]
-        [StringLength(4)]
+        [StringLength(3)]
         public string ShainCd { get; set; }
 
         [Column(TypeName = "datetime2")]

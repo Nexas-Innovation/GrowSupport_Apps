@@ -6,19 +6,19 @@ namespace GrowUpNavi.Models.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class M_Sex
+    public partial class M_SystemAuthKbn
     {
-        public M_Sex()
+        public M_SystemAuthKbn()
         {
             M_Shain = new HashSet<M_Shain>();
         }
 
         [Key]
         [StringLength(1)]
-        public string SexCd { get; set; }
+        public string SystemAuthKbnCd { get; set; }
 
         [Required]
-        [StringLength(2)]
+        [StringLength(10)]
         public string Meisho { get; set; }
 
         public int DisplayOrder { get; set; }

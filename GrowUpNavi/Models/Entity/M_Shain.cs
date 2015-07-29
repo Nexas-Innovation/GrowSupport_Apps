@@ -11,16 +11,16 @@ namespace GrowUpNavi.Models.Entity
         public M_Shain()
         {
             T_HyoshoRireki = new HashSet<T_HyoshoRireki>();
-            T_MokuhyoTasseiHyoka = new HashSet<T_MokuhyoTasseiHyoka>();
-            T_MokuhyoTasseiHyoka1 = new HashSet<T_MokuhyoTasseiHyoka>();
-            T_MokuhyoTasseiHyoka2 = new HashSet<T_MokuhyoTasseiHyoka>();
+            T_MokuhyoTasseidoHyoka = new HashSet<T_MokuhyoTasseidoHyoka>();
+            T_MokuhyoTasseidoHyoka1 = new HashSet<T_MokuhyoTasseidoHyoka>();
+            T_MokuhyoTasseidoHyoka2 = new HashSet<T_MokuhyoTasseidoHyoka>();
             T_PasswdHenkoRireki = new HashSet<T_PasswdHenkoRireki>();
             T_ShoshinKokakuRireki = new HashSet<T_ShoshinKokakuRireki>();
             T_SosaRireki = new HashSet<T_SosaRireki>();
         }
 
         [Key]
-        [StringLength(4)]
+        [StringLength(3)]
         public string ShainCd { get; set; }
 
         [Required]
@@ -77,6 +77,19 @@ namespace GrowUpNavi.Models.Entity
         [StringLength(3)]
         public string YakushokuCd { get; set; }
 
+        [Required]
+        [StringLength(64)]
+        public string Password { get; set; }
+
+        public int LoginFailedCt { get; set; }
+
+        [Column(TypeName = "datetime2")]
+        public DateTime? AccountLockDt { get; set; }
+
+        [Required]
+        [StringLength(1)]
+        public string SystemAuthKbnCd { get; set; }
+
         [StringLength(50)]
         public string Biko { get; set; }
 
@@ -85,8 +98,8 @@ namespace GrowUpNavi.Models.Entity
         public string DelFlg { get; set; }
 
         [Required]
-        [StringLength(4)]
-        public string CrtKojinCd { get; set; }
+        [StringLength(3)]
+        public string CrtShainCd { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime CrtDt { get; set; }
@@ -96,11 +109,11 @@ namespace GrowUpNavi.Models.Entity
         public string CrtPlgId { get; set; }
 
         [Required]
-        [StringLength(4)]
-        public string LastUpdKojinCd { get; set; }
+        [StringLength(3)]
+        public string LastUpdShainCd { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime LastUpdKojinDt { get; set; }
+        public DateTime LastUpdDt { get; set; }
 
         [Required]
         [StringLength(10)]
@@ -117,15 +130,17 @@ namespace GrowUpNavi.Models.Entity
 
         public virtual M_Sex M_Sex { get; set; }
 
+        public virtual M_SystemAuthKbn M_SystemAuthKbn { get; set; }
+
         public virtual M_Yakushoku M_Yakushoku { get; set; }
 
         public virtual ICollection<T_HyoshoRireki> T_HyoshoRireki { get; set; }
 
-        public virtual ICollection<T_MokuhyoTasseiHyoka> T_MokuhyoTasseiHyoka { get; set; }
+        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka { get; set; }
 
-        public virtual ICollection<T_MokuhyoTasseiHyoka> T_MokuhyoTasseiHyoka1 { get; set; }
+        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka1 { get; set; }
 
-        public virtual ICollection<T_MokuhyoTasseiHyoka> T_MokuhyoTasseiHyoka2 { get; set; }
+        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka2 { get; set; }
 
         public virtual ICollection<T_PasswdHenkoRireki> T_PasswdHenkoRireki { get; set; }
 
