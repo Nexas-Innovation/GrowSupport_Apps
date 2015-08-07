@@ -6,20 +6,21 @@ namespace GrowUpNavi.Models.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class M_Sex
+    public partial class T_HyokaGroupBunrui
     {
-        public M_Sex()
-        {
-            M_Shain = new HashSet<M_Shain>();
-        }
+        [Key]
+        [Column(Order = 0)]
+        [StringLength(3)]
+        public string ShainCd { get; set; }
 
         [Key]
-        [StringLength(1)]
-        public string SexCd { get; set; }
+        [Column(Order = 1)]
+        [StringLength(4)]
+        public string HyokaNendo { get; set; }
 
         [Required]
-        [StringLength(2)]
-        public string Meisho { get; set; }
+        [StringLength(3)]
+        public string HyokaGroupCd { get; set; }
 
         public int? DisplayOrder { get; set; }
 
@@ -54,6 +55,8 @@ namespace GrowUpNavi.Models.Entity
         [Timestamp]
         public byte[] RowVersion { get; set; }
 
-        public virtual ICollection<M_Shain> M_Shain { get; set; }
+        public virtual M_HyokaGroup M_HyokaGroup { get; set; }
+
+        public virtual M_Shain M_Shain { get; set; }
     }
 }

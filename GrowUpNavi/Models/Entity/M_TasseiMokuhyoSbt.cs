@@ -6,20 +6,22 @@ namespace GrowUpNavi.Models.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class M_MokuhyoSbt
+    public partial class M_TasseiMokuhyoSbt
     {
-        public M_MokuhyoSbt()
+        public M_TasseiMokuhyoSbt()
         {
-            T_MokuhyoTasseidoHyoka = new HashSet<T_MokuhyoTasseidoHyoka>();
-            T_MokuhyoTasseidoHyoka1 = new HashSet<T_MokuhyoTasseidoHyoka>();
-            T_MokuhyoTasseidoHyoka2 = new HashSet<T_MokuhyoTasseidoHyoka>();
-            T_MokuhyoTasseidoHyoka3 = new HashSet<T_MokuhyoTasseidoHyoka>();
-            T_MokuhyoTasseidoHyoka4 = new HashSet<T_MokuhyoTasseidoHyoka>();
+            T_JinendoTasseiMokuhyoSettei = new HashSet<T_JinendoTasseiMokuhyoSettei>();
         }
 
         [Key]
+        [Column(Order = 0)]
+        [StringLength(4)]
+        public string HyokaNendo { get; set; }
+
+        [Key]
+        [Column(Order = 1)]
         [StringLength(3)]
-        public string MokuhyoSbtCd { get; set; }
+        public string TasseiMokuhyoSbtCd { get; set; }
 
         [Required]
         [StringLength(10)]
@@ -31,9 +33,9 @@ namespace GrowUpNavi.Models.Entity
 
         [Required]
         [StringLength(100)]
-        public string MokuhyoJirei { get; set; }
+        public string TasseiMokuhyoJirei { get; set; }
 
-        public int DisplayOrder { get; set; }
+        public int? DisplayOrder { get; set; }
 
         [Required]
         [StringLength(1)]
@@ -66,14 +68,6 @@ namespace GrowUpNavi.Models.Entity
         [Timestamp]
         public byte[] RowVersion { get; set; }
 
-        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka { get; set; }
-
-        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka1 { get; set; }
-
-        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka2 { get; set; }
-
-        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka3 { get; set; }
-
-        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka4 { get; set; }
+        public virtual ICollection<T_JinendoTasseiMokuhyoSettei> T_JinendoTasseiMokuhyoSettei { get; set; }
     }
 }

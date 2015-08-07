@@ -10,11 +10,13 @@ namespace GrowUpNavi.Models.Entity
     {
         public M_Shain()
         {
+            T_HyokaGroupBunrui = new HashSet<T_HyokaGroupBunrui>();
             T_HyoshoRireki = new HashSet<T_HyoshoRireki>();
-            T_MokuhyoTasseidoHyoka = new HashSet<T_MokuhyoTasseidoHyoka>();
-            T_MokuhyoTasseidoHyoka1 = new HashSet<T_MokuhyoTasseidoHyoka>();
-            T_MokuhyoTasseidoHyoka2 = new HashSet<T_MokuhyoTasseidoHyoka>();
+            T_MokuhyoTasseidoJikoHyoka = new HashSet<T_MokuhyoTasseidoJikoHyoka>();
+            T_MokuhyoTasseidoTashaHyoka = new HashSet<T_MokuhyoTasseidoTashaHyoka>();
             T_PasswdHenkoRireki = new HashSet<T_PasswdHenkoRireki>();
+            T_SeichodoJikoHyoka = new HashSet<T_SeichodoJikoHyoka>();
+            T_SeichodoTashaHyoka = new HashSet<T_SeichodoTashaHyoka>();
             T_ShoshinKokakuRireki = new HashSet<T_ShoshinKokakuRireki>();
             T_SosaRireki = new HashSet<T_SosaRireki>();
         }
@@ -134,15 +136,19 @@ namespace GrowUpNavi.Models.Entity
 
         public virtual M_Yakushoku M_Yakushoku { get; set; }
 
+        public virtual ICollection<T_HyokaGroupBunrui> T_HyokaGroupBunrui { get; set; }
+
         public virtual ICollection<T_HyoshoRireki> T_HyoshoRireki { get; set; }
 
-        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka { get; set; }
+        public virtual ICollection<T_MokuhyoTasseidoJikoHyoka> T_MokuhyoTasseidoJikoHyoka { get; set; }
 
-        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka1 { get; set; }
-
-        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka2 { get; set; }
+        public virtual ICollection<T_MokuhyoTasseidoTashaHyoka> T_MokuhyoTasseidoTashaHyoka { get; set; }
 
         public virtual ICollection<T_PasswdHenkoRireki> T_PasswdHenkoRireki { get; set; }
+
+        public virtual ICollection<T_SeichodoJikoHyoka> T_SeichodoJikoHyoka { get; set; }
+
+        public virtual ICollection<T_SeichodoTashaHyoka> T_SeichodoTashaHyoka { get; set; }
 
         public virtual ICollection<T_ShoshinKokakuRireki> T_ShoshinKokakuRireki { get; set; }
 

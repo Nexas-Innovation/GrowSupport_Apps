@@ -58,8 +58,6 @@ namespace GrowUpNavi.Models.Entity
 
         public virtual M_Shain M_Shain { get; set; }
 
-        public virtual M_ShoshinKokaku M_ShoshinKokaku { get; set; }
-
         public virtual M_Yakushoku M_Yakushoku { get; set; }
     }
 }

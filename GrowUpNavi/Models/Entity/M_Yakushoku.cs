@@ -26,7 +26,10 @@ namespace GrowUpNavi.Models.Entity
         [StringLength(10)]
         public string Ryakusho { get; set; }
 
-        public int DisplayOrder { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public short? HierarchyLevel { get; set; }
+
+        public int? DisplayOrder { get; set; }
 
         [Required]
         [StringLength(1)]

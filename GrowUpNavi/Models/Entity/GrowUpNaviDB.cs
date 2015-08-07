@@ -16,18 +16,26 @@ namespace GrowUpNavi.Models.Entity
         public virtual DbSet<M_GentaiKbn> M_GentaiKbn { get; set; }
         public virtual DbSet<M_HyokaGroup> M_HyokaGroup { get; set; }
         public virtual DbSet<M_HyoshoKbn> M_HyoshoKbn { get; set; }
-        public virtual DbSet<M_MokuhyoSbt> M_MokuhyoSbt { get; set; }
+        public virtual DbSet<M_SeichoHyokaLv> M_SeichoHyokaLv { get; set; }
+        public virtual DbSet<M_SeichoHyokaPnt> M_SeichoHyokaPnt { get; set; }
+        public virtual DbSet<M_SeichoMokuhyoSbt> M_SeichoMokuhyoSbt { get; set; }
         public virtual DbSet<M_Sex> M_Sex { get; set; }
         public virtual DbSet<M_Shain> M_Shain { get; set; }
-        public virtual DbSet<M_ShoshinKokaku> M_ShoshinKokaku { get; set; }
+        public virtual DbSet<M_ShoshinKokakuKbn> M_ShoshinKokakuKbn { get; set; }
         public virtual DbSet<M_SosaKbn> M_SosaKbn { get; set; }
         public virtual DbSet<M_SystemAuthKbn> M_SystemAuthKbn { get; set; }
+        public virtual DbSet<M_TasseiMokuhyoSbt> M_TasseiMokuhyoSbt { get; set; }
         public virtual DbSet<M_Yakushoku> M_Yakushoku { get; set; }
+        public virtual DbSet<T_HyokaGroupBunrui> T_HyokaGroupBunrui { get; set; }
         public virtual DbSet<T_HyoshoRireki> T_HyoshoRireki { get; set; }
-        public virtual DbSet<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka { get; set; }
+        public virtual DbSet<T_MokuhyoTasseidoJikoHyoka> T_MokuhyoTasseidoJikoHyoka { get; set; }
+        public virtual DbSet<T_MokuhyoTasseidoTashaHyoka> T_MokuhyoTasseidoTashaHyoka { get; set; }
         public virtual DbSet<T_PasswdHenkoRireki> T_PasswdHenkoRireki { get; set; }
+        public virtual DbSet<T_SeichodoJikoHyoka> T_SeichodoJikoHyoka { get; set; }
+        public virtual DbSet<T_SeichodoTashaHyoka> T_SeichodoTashaHyoka { get; set; }
         public virtual DbSet<T_ShoshinKokakuRireki> T_ShoshinKokakuRireki { get; set; }
         public virtual DbSet<T_SosaRireki> T_SosaRireki { get; set; }
+        public virtual DbSet<T_JinendoTasseiMokuhyoSettei> T_JinendoTasseiMokuhyoSettei { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -138,7 +146,7 @@ namespace GrowUpNavi.Models.Entity
                 .IsFixedLength();
 
             modelBuilder.Entity<M_HyokaGroup>()
-                .HasMany(e => e.T_MokuhyoTasseidoHyoka)
+                .HasMany(e => e.T_HyokaGroupBunrui)
                 .WithRequired(e => e.M_HyokaGroup)
                 .HasForeignKey(e => new { e.HyokaNendo, e.HyokaGroupCd })
                 .WillCascadeOnDelete(false);
@@ -190,62 +198,149 @@ namespace GrowUpNavi.Models.Entity
                 .WithRequired(e => e.M_HyoshoKbn)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
-                .Property(e => e.MokuhyoSbtCd)
+            modelBuilder.Entity<M_SeichoHyokaLv>()
+                .Property(e => e.SeichoHyokaPntCd)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
+            modelBuilder.Entity<M_SeichoHyokaLv>()
+                .Property(e => e.HyokaNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoHyokaLv>()
                 .Property(e => e.DelFlg)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
+            modelBuilder.Entity<M_SeichoHyokaLv>()
                 .Property(e => e.CrtShainCd)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
+            modelBuilder.Entity<M_SeichoHyokaLv>()
                 .Property(e => e.CrtPlgId)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
+            modelBuilder.Entity<M_SeichoHyokaLv>()
                 .Property(e => e.LastUpdShainCd)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
+            modelBuilder.Entity<M_SeichoHyokaLv>()
                 .Property(e => e.LastUpdPlgId)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
+            modelBuilder.Entity<M_SeichoHyokaLv>()
                 .Property(e => e.RowVersion)
                 .IsFixedLength();
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
-                .HasMany(e => e.T_MokuhyoTasseidoHyoka)
-                .WithOptional(e => e.M_MokuhyoSbt)
-                .HasForeignKey(e => e.Mokuhyo1SbtCd);
+            modelBuilder.Entity<M_SeichoHyokaLv>()
+                .HasMany(e => e.T_SeichodoJikoHyoka)
+                .WithRequired(e => e.M_SeichoHyokaLv)
+                .HasForeignKey(e => new { e.SeichoHyokaPntCd, e.HyokaNendo, e.SeichoHyokaLevel })
+                .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
-                .HasMany(e => e.T_MokuhyoTasseidoHyoka1)
-                .WithOptional(e => e.M_MokuhyoSbt1)
-                .HasForeignKey(e => e.Mokuhyo2SbtCd);
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.SeichoHyokaPntCd)
+                .IsFixedLength()
+                .IsUnicode(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
-                .HasMany(e => e.T_MokuhyoTasseidoHyoka2)
-                .WithOptional(e => e.M_MokuhyoSbt2)
-                .HasForeignKey(e => e.Mokuhyo3SbtCd);
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.HyokaNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
-                .HasMany(e => e.T_MokuhyoTasseidoHyoka3)
-                .WithOptional(e => e.M_MokuhyoSbt3)
-                .HasForeignKey(e => e.Mokuhyo4SbtCd);
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.SeichoMokuhyoSbtCd1)
+                .IsFixedLength()
+                .IsUnicode(false);
 
-            modelBuilder.Entity<M_MokuhyoSbt>()
-                .HasMany(e => e.T_MokuhyoTasseidoHyoka4)
-                .WithOptional(e => e.M_MokuhyoSbt4)
-                .HasForeignKey(e => e.Mokuhyo5SbtCd);
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.SeichoMokuhyoSbtCd2)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.DelFlg)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.CrtShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.CrtPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.LastUpdShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.LastUpdPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .Property(e => e.RowVersion)
+                .IsFixedLength();
+
+            modelBuilder.Entity<M_SeichoHyokaPnt>()
+                .HasMany(e => e.M_SeichoHyokaLv)
+                .WithRequired(e => e.M_SeichoHyokaPnt)
+                .HasForeignKey(e => new { e.SeichoHyokaPntCd, e.HyokaNendo })
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .Property(e => e.HyokaNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .Property(e => e.SeichoMokuhyoSbtCd1)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .Property(e => e.SeichoMokuhyoSbtCd2)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .Property(e => e.DelFlg)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .Property(e => e.CrtShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .Property(e => e.CrtPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .Property(e => e.LastUpdShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .Property(e => e.LastUpdPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .Property(e => e.RowVersion)
+                .IsFixedLength();
+
+            modelBuilder.Entity<M_SeichoMokuhyoSbt>()
+                .HasMany(e => e.M_SeichoHyokaPnt)
+                .WithRequired(e => e.M_SeichoMokuhyoSbt)
+                .HasForeignKey(e => new { e.HyokaNendo, e.SeichoMokuhyoSbtCd1, e.SeichoMokuhyoSbtCd2 })
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<M_Sex>()
                 .Property(e => e.SexCd)
@@ -371,29 +466,40 @@ namespace GrowUpNavi.Models.Entity
                 .IsFixedLength();
 
             modelBuilder.Entity<M_Shain>()
+                .HasMany(e => e.T_HyokaGroupBunrui)
+                .WithRequired(e => e.M_Shain)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<M_Shain>()
                 .HasMany(e => e.T_HyoshoRireki)
                 .WithRequired(e => e.M_Shain)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<M_Shain>()
-                .HasMany(e => e.T_MokuhyoTasseidoHyoka)
+                .HasMany(e => e.T_MokuhyoTasseidoJikoHyoka)
                 .WithRequired(e => e.M_Shain)
-                .HasForeignKey(e => e.ShainCd)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<M_Shain>()
-                .HasMany(e => e.T_MokuhyoTasseidoHyoka1)
-                .WithOptional(e => e.M_Shain1)
-                .HasForeignKey(e => e.Hyokasha1Cd);
-
-            modelBuilder.Entity<M_Shain>()
-                .HasMany(e => e.T_MokuhyoTasseidoHyoka2)
-                .WithOptional(e => e.M_Shain2)
-                .HasForeignKey(e => e.Hyokasha2Cd);
+                .HasMany(e => e.T_MokuhyoTasseidoTashaHyoka)
+                .WithRequired(e => e.M_Shain)
+                .HasForeignKey(e => e.HyokaShainCd)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<M_Shain>()
                 .HasMany(e => e.T_PasswdHenkoRireki)
                 .WithRequired(e => e.M_Shain)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<M_Shain>()
+                .HasMany(e => e.T_SeichodoJikoHyoka)
+                .WithRequired(e => e.M_Shain)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<M_Shain>()
+                .HasMany(e => e.T_SeichodoTashaHyoka)
+                .WithRequired(e => e.M_Shain)
+                .HasForeignKey(e => e.HyokaShainCd)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<M_Shain>()
@@ -406,42 +512,37 @@ namespace GrowUpNavi.Models.Entity
                 .WithRequired(e => e.M_Shain)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<M_ShoshinKokaku>()
+            modelBuilder.Entity<M_ShoshinKokakuKbn>()
                 .Property(e => e.ShoshinKokakuKbnCd)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_ShoshinKokaku>()
+            modelBuilder.Entity<M_ShoshinKokakuKbn>()
                 .Property(e => e.DelFlg)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_ShoshinKokaku>()
+            modelBuilder.Entity<M_ShoshinKokakuKbn>()
                 .Property(e => e.CrtShainCd)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_ShoshinKokaku>()
+            modelBuilder.Entity<M_ShoshinKokakuKbn>()
                 .Property(e => e.CrtPlgId)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_ShoshinKokaku>()
+            modelBuilder.Entity<M_ShoshinKokakuKbn>()
                 .Property(e => e.LastUpdShainCd)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_ShoshinKokaku>()
+            modelBuilder.Entity<M_ShoshinKokakuKbn>()
                 .Property(e => e.LastUpdPlgId)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<M_ShoshinKokaku>()
+            modelBuilder.Entity<M_ShoshinKokakuKbn>()
                 .Property(e => e.RowVersion)
                 .IsFixedLength();
-
-            modelBuilder.Entity<M_ShoshinKokaku>()
-                .HasMany(e => e.T_ShoshinKokakuRireki)
-                .WithRequired(e => e.M_ShoshinKokaku)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<M_SosaKbn>()
                 .Property(e => e.SosaKbnCd)
@@ -517,6 +618,48 @@ namespace GrowUpNavi.Models.Entity
                 .WithRequired(e => e.M_SystemAuthKbn)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<M_TasseiMokuhyoSbt>()
+                .Property(e => e.HyokaNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_TasseiMokuhyoSbt>()
+                .Property(e => e.TasseiMokuhyoSbtCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_TasseiMokuhyoSbt>()
+                .Property(e => e.DelFlg)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_TasseiMokuhyoSbt>()
+                .Property(e => e.CrtShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_TasseiMokuhyoSbt>()
+                .Property(e => e.CrtPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_TasseiMokuhyoSbt>()
+                .Property(e => e.LastUpdShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_TasseiMokuhyoSbt>()
+                .Property(e => e.LastUpdPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<M_TasseiMokuhyoSbt>()
+                .Property(e => e.RowVersion)
+                .IsFixedLength();
+
+            modelBuilder.Entity<M_TasseiMokuhyoSbt>()
+                .HasMany(e => e.T_JinendoTasseiMokuhyoSettei)
+                .WithOptional(e => e.M_TasseiMokuhyoSbt)
+                .HasForeignKey(e => new { e.HyokaNendo, e.TasseiMokuhyoSbtCd });
+
             modelBuilder.Entity<M_Yakushoku>()
                 .Property(e => e.YakushokuCd)
                 .IsFixedLength()
@@ -555,6 +698,48 @@ namespace GrowUpNavi.Models.Entity
                 .HasForeignKey(e => e.NinmeiYakushokuCd)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<T_HyokaGroupBunrui>()
+                .Property(e => e.ShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_HyokaGroupBunrui>()
+                .Property(e => e.HyokaNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_HyokaGroupBunrui>()
+                .Property(e => e.HyokaGroupCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_HyokaGroupBunrui>()
+                .Property(e => e.DelFlg)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_HyokaGroupBunrui>()
+                .Property(e => e.CrtShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_HyokaGroupBunrui>()
+                .Property(e => e.CrtPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_HyokaGroupBunrui>()
+                .Property(e => e.LastUpdShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_HyokaGroupBunrui>()
+                .Property(e => e.LastUpdPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_HyokaGroupBunrui>()
+                .Property(e => e.RowVersion)
+                .IsFixedLength();
+
             modelBuilder.Entity<T_HyoshoRireki>()
                 .Property(e => e.ShainCd)
                 .IsFixedLength()
@@ -592,85 +777,94 @@ namespace GrowUpNavi.Models.Entity
                 .Property(e => e.RowVersion)
                 .IsFixedLength();
 
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
                 .Property(e => e.ShainCd)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
                 .Property(e => e.HyokaNendo)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
-                .Property(e => e.HyokaGroupCd)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
-                .Property(e => e.Mokuhyo1SbtCd)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
-                .Property(e => e.Mokuhyo2SbtCd)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
-                .Property(e => e.Mokuhyo3SbtCd)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
-                .Property(e => e.Mokuhyo4SbtCd)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
-                .Property(e => e.Mokuhyo5SbtCd)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
-                .Property(e => e.DisplayOrder)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
-                .Property(e => e.Hyokasha1Cd)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
-                .Property(e => e.Hyokasha2Cd)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
                 .Property(e => e.DelFlg)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
                 .Property(e => e.CrtShainCd)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
                 .Property(e => e.CrtPlgId)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
                 .Property(e => e.LastUpdShainCd)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
                 .Property(e => e.LastUpdPlgId)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<T_MokuhyoTasseidoHyoka>()
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
+                .Property(e => e.RowVersion)
+                .IsFixedLength();
+
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
+                .HasMany(e => e.T_JinendoTasseiMokuhyoSettei)
+                .WithRequired(e => e.T_MokuhyoTasseidoJikoHyoka)
+                .HasForeignKey(e => new { e.ShainCd, e.HyokaNendo })
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoJikoHyoka>()
+                .HasMany(e => e.T_MokuhyoTasseidoTashaHyoka)
+                .WithRequired(e => e.T_MokuhyoTasseidoJikoHyoka)
+                .HasForeignKey(e => new { e.HiHyokaShainCd, e.HyokaNendo })
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoTashaHyoka>()
+                .Property(e => e.HiHyokaShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoTashaHyoka>()
+                .Property(e => e.HyokaNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoTashaHyoka>()
+                .Property(e => e.HyokaShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoTashaHyoka>()
+                .Property(e => e.DelFlg)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoTashaHyoka>()
+                .Property(e => e.CrtShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoTashaHyoka>()
+                .Property(e => e.CrtPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoTashaHyoka>()
+                .Property(e => e.LastUpdShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoTashaHyoka>()
+                .Property(e => e.LastUpdPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_MokuhyoTasseidoTashaHyoka>()
                 .Property(e => e.RowVersion)
                 .IsFixedLength();
 
@@ -687,6 +881,101 @@ namespace GrowUpNavi.Models.Entity
             modelBuilder.Entity<T_PasswdHenkoRireki>()
                 .Property(e => e.CrtPlgId)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .Property(e => e.ShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .Property(e => e.HyokaNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .Property(e => e.SeichoHyokaPntCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .Property(e => e.DelFlg)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .Property(e => e.CrtShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .Property(e => e.CrtPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .Property(e => e.LastUpdShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .Property(e => e.LastUpdPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .Property(e => e.RowVersion)
+                .IsFixedLength();
+
+            modelBuilder.Entity<T_SeichodoJikoHyoka>()
+                .HasMany(e => e.T_SeichodoTashaHyoka)
+                .WithRequired(e => e.T_SeichodoJikoHyoka)
+                .HasForeignKey(e => new { e.HiHyokaShainCd, e.HyokaNendo, e.SeichoHyokaPntCd })
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.HiHyokaShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.HyokaNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.SeichoHyokaPntCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.HyokaShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.DelFlg)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.CrtShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.CrtPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.LastUpdShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.LastUpdPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_SeichodoTashaHyoka>()
+                .Property(e => e.RowVersion)
+                .IsFixedLength();
 
             modelBuilder.Entity<T_ShoshinKokakuRireki>()
                 .Property(e => e.ShainCd)
@@ -747,6 +1036,48 @@ namespace GrowUpNavi.Models.Entity
             modelBuilder.Entity<T_SosaRireki>()
                 .Property(e => e.CrtPlgId)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<T_JinendoTasseiMokuhyoSettei>()
+                .Property(e => e.ShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_JinendoTasseiMokuhyoSettei>()
+                .Property(e => e.HyokaNendo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_JinendoTasseiMokuhyoSettei>()
+                .Property(e => e.TasseiMokuhyoSbtCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_JinendoTasseiMokuhyoSettei>()
+                .Property(e => e.DelFlg)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_JinendoTasseiMokuhyoSettei>()
+                .Property(e => e.CrtShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_JinendoTasseiMokuhyoSettei>()
+                .Property(e => e.CrtPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_JinendoTasseiMokuhyoSettei>()
+                .Property(e => e.LastUpdShainCd)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_JinendoTasseiMokuhyoSettei>()
+                .Property(e => e.LastUpdPlgId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_JinendoTasseiMokuhyoSettei>()
+                .Property(e => e.RowVersion)
+                .IsFixedLength();
         }
     }
 }

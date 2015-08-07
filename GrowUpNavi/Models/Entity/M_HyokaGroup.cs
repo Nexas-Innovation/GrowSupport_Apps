@@ -10,7 +10,7 @@ namespace GrowUpNavi.Models.Entity
     {
         public M_HyokaGroup()
         {
-            T_MokuhyoTasseidoHyoka = new HashSet<T_MokuhyoTasseidoHyoka>();
+            T_HyokaGroupBunrui = new HashSet<T_HyokaGroupBunrui>();
         }
 
         [Key]
@@ -27,7 +27,10 @@ namespace GrowUpNavi.Models.Entity
         [StringLength(15)]
         public string HyokaGroupName { get; set; }
 
-        public int DisplayOrder { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public short? HierarchyLevel { get; set; }
+
+        public int? DisplayOrder { get; set; }
 
         [Required]
         [StringLength(1)]
@@ -60,6 +63,6 @@ namespace GrowUpNavi.Models.Entity
         [Timestamp]
         public byte[] RowVersion { get; set; }
 
-        public virtual ICollection<T_MokuhyoTasseidoHyoka> T_MokuhyoTasseidoHyoka { get; set; }
+        public virtual ICollection<T_HyokaGroupBunrui> T_HyokaGroupBunrui { get; set; }
     }
 }

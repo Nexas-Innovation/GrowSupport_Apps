@@ -6,16 +6,11 @@ namespace GrowUpNavi.Models.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class M_Sex
+    public partial class M_ShoshinKokakuKbn
     {
-        public M_Sex()
-        {
-            M_Shain = new HashSet<M_Shain>();
-        }
-
         [Key]
         [StringLength(1)]
-        public string SexCd { get; set; }
+        public string ShoshinKokakuKbnCd { get; set; }
 
         [Required]
         [StringLength(2)]
@@ -53,7 +48,5 @@ namespace GrowUpNavi.Models.Entity
         [MaxLength(8)]
         [Timestamp]
         public byte[] RowVersion { get; set; }
-
-        public virtual ICollection<M_Shain> M_Shain { get; set; }
     }
 }

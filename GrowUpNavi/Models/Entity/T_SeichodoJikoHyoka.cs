@@ -6,22 +6,33 @@ namespace GrowUpNavi.Models.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class M_ShoshinKokaku
+    public partial class T_SeichodoJikoHyoka
     {
-        public M_ShoshinKokaku()
+        public T_SeichodoJikoHyoka()
         {
-            T_ShoshinKokakuRireki = new HashSet<T_ShoshinKokakuRireki>();
+            T_SeichodoTashaHyoka = new HashSet<T_SeichodoTashaHyoka>();
         }
 
         [Key]
-        [StringLength(1)]
-        public string ShoshinKokakuKbnCd { get; set; }
+        [Column(Order = 0)]
+        [StringLength(3)]
+        public string ShainCd { get; set; }
+
+        [Key]
+        [Column(Order = 1)]
+        [StringLength(4)]
+        public string HyokaNendo { get; set; }
+
+        [Key]
+        [Column(Order = 2)]
+        [StringLength(3)]
+        public string SeichoHyokaPntCd { get; set; }
+
+        public int SeichoHyokaLevel { get; set; }
 
         [Required]
-        [StringLength(2)]
-        public string Meisho { get; set; }
-
-        public int DisplayOrder { get; set; }
+        [StringLength(100)]
+        public string JikoHyokaCmnt { get; set; }
 
         [Required]
         [StringLength(1)]
@@ -54,6 +65,10 @@ namespace GrowUpNavi.Models.Entity
         [Timestamp]
         public byte[] RowVersion { get; set; }
 
-        public virtual ICollection<T_ShoshinKokakuRireki> T_ShoshinKokakuRireki { get; set; }
+        public virtual M_SeichoHyokaLv M_SeichoHyokaLv { get; set; }
+
+        public virtual M_Shain M_Shain { get; set; }
+
+        public virtual ICollection<T_SeichodoTashaHyoka> T_SeichodoTashaHyoka { get; set; }
     }
 }

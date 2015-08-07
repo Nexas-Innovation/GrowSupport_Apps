@@ -21,7 +21,7 @@ namespace GrowUpNavi.Models.Entity
         [StringLength(10)]
         public string Meisho { get; set; }
 
-        public int DisplayOrder { get; set; }
+        public int? DisplayOrder { get; set; }
 
         [Required]
         [StringLength(1)]
