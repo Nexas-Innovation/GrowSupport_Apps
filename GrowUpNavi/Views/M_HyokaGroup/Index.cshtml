@@ -1,0 +1,93 @@
+﻿@model IEnumerable<GrowUpNavi.Models.Entity.M_HyokaGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HyokaGroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HierarchyLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisplayOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DelFlg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrtShainCd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrtDt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrtPlgId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdShainCd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdDt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdPlgId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RowVersion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HyokaGroupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HierarchyLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisplayOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelFlg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrtShainCd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrtDt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrtPlgId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdShainCd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdDt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdPlgId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowVersion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

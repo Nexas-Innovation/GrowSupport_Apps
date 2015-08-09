@@ -162,6 +162,8 @@
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\M_HyokaGroupController.cs" />
+    <Compile Include="Controllers\M_YakushokuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -173,16 +175,24 @@
     <Compile Include="Models\Entity\M_GentaiKbn.cs" />
     <Compile Include="Models\Entity\M_HyokaGroup.cs" />
     <Compile Include="Models\Entity\M_HyoshoKbn.cs" />
-    <Compile Include="Models\Entity\M_MokuhyoSbt.cs" />
+    <Compile Include="Models\Entity\M_SeichoHyokaLv.cs" />
+    <Compile Include="Models\Entity\M_SeichoHyokaPnt.cs" />
+    <Compile Include="Models\Entity\M_SeichoMokuhyoSbt.cs" />
     <Compile Include="Models\Entity\M_Sex.cs" />
     <Compile Include="Models\Entity\M_Shain.cs" />
-    <Compile Include="Models\Entity\M_ShoshinKokaku.cs" />
+    <Compile Include="Models\Entity\M_ShoshinKokakuKbn.cs" />
     <Compile Include="Models\Entity\M_SosaKbn.cs" />
     <Compile Include="Models\Entity\M_SystemAuthKbn.cs" />
+    <Compile Include="Models\Entity\M_TasseiMokuhyoSbt.cs" />
     <Compile Include="Models\Entity\M_Yakushoku.cs" />
+    <Compile Include="Models\Entity\T_HyokaGroupBunrui.cs" />
     <Compile Include="Models\Entity\T_HyoshoRireki.cs" />
-    <Compile Include="Models\Entity\T_MokuhyoTasseidoHyoka.cs" />
+    <Compile Include="Models\Entity\T_JinendoTasseiMokuhyoSettei.cs" />
+    <Compile Include="Models\Entity\T_MokuhyoTasseidoJikoHyoka.cs" />
+    <Compile Include="Models\Entity\T_MokuhyoTasseidoTashaHyoka.cs" />
     <Compile Include="Models\Entity\T_PasswdHenkoRireki.cs" />
+    <Compile Include="Models\Entity\T_SeichodoJikoHyoka.cs" />
+    <Compile Include="Models\Entity\T_SeichodoTashaHyoka.cs" />
     <Compile Include="Models\Entity\T_ShoshinKokakuRireki.cs" />
     <Compile Include="Models\Entity\T_SosaRireki.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -266,6 +276,16 @@
     <Content Include="Views\Info\Login.cshtml" />
     <Content Include="Views\Info\Menu.cshtml" />
     <Content Include="Views\Manage\Master.cshtml" />
+    <Content Include="Views\M_HyokaGroup\Create.cshtml" />
+    <Content Include="Views\M_HyokaGroup\Delete.cshtml" />
+    <Content Include="Views\M_HyokaGroup\Details.cshtml" />
+    <Content Include="Views\M_HyokaGroup\Edit.cshtml" />
+    <Content Include="Views\M_HyokaGroup\Index.cshtml" />
+    <Content Include="Views\M_Yakushoku\Create.cshtml" />
+    <Content Include="Views\M_Yakushoku\Delete.cshtml" />
+    <Content Include="Views\M_Yakushoku\Details.cshtml" />
+    <Content Include="Views\M_Yakushoku\Edit.cshtml" />
+    <Content Include="Views\M_Yakushoku\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

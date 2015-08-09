@@ -1,0 +1,122 @@
+﻿@model GrowUpNavi.Models.Entity.M_Yakushoku
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>M_Yakushoku</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Meisho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meisho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ryakusho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ryakusho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HierarchyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HierarchyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HierarchyLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HierarchyLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DelFlg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DelFlg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrtShainCd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrtShainCd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrtDt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrtDt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrtPlgId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrtPlgId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdShainCd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdShainCd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdDt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdDt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdPlgId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdPlgId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RowVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RowVersion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.YakushokuCd }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -8,18 +8,14 @@ namespace GrowUpNavi.Models.Entity
 
     public partial class T_JinendoTasseiMokuhyoSettei
     {
-        [Key]
-        [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
+        [Required]
         [StringLength(3)]
         public string ShainCd { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
+        [Required]
         [StringLength(4)]
         public string HyokaNendo { get; set; }
 
@@ -29,41 +25,33 @@ namespace GrowUpNavi.Models.Entity
         [StringLength(50)]
         public string TasseiMokuhyoNaiyo { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
+        [Required]
         [StringLength(1)]
         public string DelFlg { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
+        [Required]
         [StringLength(3)]
         public string CrtShainCd { get; set; }
 
-        [Key]
-        [Column(Order = 5, TypeName = "datetime2")]
+        [Column(TypeName = "datetime2")]
         public DateTime CrtDt { get; set; }
 
-        [Key]
-        [Column(Order = 6)]
+        [Required]
         [StringLength(10)]
         public string CrtPlgId { get; set; }
 
-        [Key]
-        [Column(Order = 7)]
+        [Required]
         [StringLength(3)]
         public string LastUpdShainCd { get; set; }
 
-        [Key]
-        [Column(Order = 8, TypeName = "datetime2")]
+        [Column(TypeName = "datetime2")]
         public DateTime LastUpdDt { get; set; }
 
-        [Key]
-        [Column(Order = 9)]
+        [Required]
         [StringLength(10)]
         public string LastUpdPlgId { get; set; }
 
-        [Key]
-        [Column(Order = 10, TypeName = "timestamp")]
+        [Column(TypeName = "timestamp")]
         [MaxLength(8)]
         [Timestamp]
         public byte[] RowVersion { get; set; }
