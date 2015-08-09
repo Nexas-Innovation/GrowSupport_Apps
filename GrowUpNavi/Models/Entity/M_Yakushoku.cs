@@ -26,6 +26,9 @@ namespace GrowUpNavi.Models.Entity
         [StringLength(10)]
         public string Ryakusho { get; set; }
 
+        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        //public string HierarchyID { get; set; }
+
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public short? HierarchyLevel { get; set; }
 

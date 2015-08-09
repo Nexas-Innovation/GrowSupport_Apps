@@ -27,6 +27,9 @@ namespace GrowUpNavi.Models.Entity
         [StringLength(15)]
         public string HyokaGroupName { get; set; }
 
+        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        //public string HierarchyID { get; set; }
+
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public short? HierarchyLevel { get; set; }
 
