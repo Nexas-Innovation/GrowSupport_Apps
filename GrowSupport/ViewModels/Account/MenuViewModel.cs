@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GrowUpNavi.ViewModels.Info
+namespace GrowUpNavi.ViewModels.Account
 {
-    public class LoginViewModel
+    public class MenuViewModel
     {
     }
 }

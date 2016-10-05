@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace GrowUpNavi.Controllers
 {
-    public class InfoController : Controller
+    public class AccountController : Controller
     {
         // GET: Login
         public ActionResult Login()
