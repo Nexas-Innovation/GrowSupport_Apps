@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Honoka v3.3.5
  * Website: http://honokak.osaka/
@@ -6021,7 +6021,8 @@ tbody.collapse.in {
 }
 
 .navbar-inverse {
-  background-color: #222222;
+  /*background-color: #222222;*/
+  background-color: #FFFFFF;
   border-color: #090909;
 }
 .navbar-inverse .navbar-brand {

@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -160,7 +161,7 @@
     <Compile Include="App_Start\LoginInfo.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AppController.cs" />
-    <Compile Include="Controllers\InfoController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\M_YakushokuController.cs" />
     <Compile Include="Global.asax.cs">
@@ -197,13 +198,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\App\ReportViewModel.cs" />
-    <Compile Include="ViewModels\Info\LoginViewModel.cs" />
-    <Compile Include="ViewModels\Info\MenuViewModel.cs" />
+    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Account\MenuViewModel.cs" />
     <Compile Include="ViewModels\Manage\MasterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Img\logo_header_main.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -272,8 +274,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\App\Report.cshtml" />
-    <Content Include="Views\Info\Login.cshtml" />
-    <Content Include="Views\Info\Menu.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Menu.cshtml" />
     <Content Include="Views\Manage\Master.cshtml" />
     <Content Include="Views\M_Yakushoku\Create.cshtml" />
     <Content Include="Views\M_Yakushoku\Delete.cshtml" />
