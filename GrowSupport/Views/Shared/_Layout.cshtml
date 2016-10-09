@@ -1,16 +1,36 @@
-﻿<!DOCTYPE html>
+﻿@*
+    /**
+     * _Layout.cshtm / レイアウトページ
+     *
+     * DateCreated:
+     *  2016-10-08 Kanage.Tatsuya
+     *
+     * DateModified:
+     *
+     *
+     * Copyright (C) 2016 dev-kanage. All rights reserved.
+     */
+*@
+
+@using System.Configuration
+@{ 
+    Layout = null;
+    var applicationName = (string)ConfigurationManager.AppSettings["ApplicationName"];
+    var actionName = (string)ViewContext.RouteData.Values["action"];
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @*TODOサイト名を外だししたい…*@
-    <title>@ViewBag.Title - GroNavi</title>
+    <title>@ViewBag.Title | @(applicationName)</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/custom_css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body class="@(actionName)">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -19,9 +39,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="@Url.Action("Login", "Account")">
-                    <img src="~/Content/Img/logo_header_main.png" />
-                </a>
+                <div class="headerLogo">
+                    <a href="@Url.Action("Login", "Account")">
+                        <img src="~/Content/img/logo_header_main.png" />
+                    </a>
+                </div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -37,8 +59,7 @@
         @RenderBody()
         <hr />
         <footer>
-            @*TODOサイト名を外だししたい…*@
-            <p>&copy; @DateTime.Now.Year - GroNavi</p>
+            <p class="copy"><small>Copyright &copy; @DateTime.Now.Year dev-kanage. All rights reserved.</small></p>
         </footer>
     </div>
 

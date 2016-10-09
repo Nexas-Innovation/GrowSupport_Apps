@@ -1,0 +1,120 @@
+﻿.container {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+body {
+  background-color: #FFFFFF;
+}
+
+.navbar-inverse {
+  background-color: #FFFFFF;
+  border-color: #eeeeee;
+}
+
+.body-content {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+input,
+select,
+textarea {
+    max-width: 512px;
+}
+
+a:focus, *:focus {
+    /*画像クリック時に表出する枠線を消す*/
+    outline: none;
+}
+
+footer.copy {
+    color: #A0A0A0;
+}
+
+.hanEisu {
+    ime-mode: disabled;
+}
+
+/*プレースホルダーの文字色*/
+/*Chrome・Safari用*/
+::-webkit-input-placeholder {
+    color: #ccc;
+}
+/*Firefox*/
+::-moz-placeholder {
+    color: #ccc;
+    opacity: 1;
+}
+/*IE ※IE9以前には適用されない。*/
+:-ms-input-placeholder {
+    color: #ccc;
+}
+
+/*プレースホルダーをフォーカス時に消す*/
+/*Chrome・Safari用*/
+:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+/* Firefox 18 以前 */
+:focus:-moz-placeholder {
+    color: transparent;
+}
+/* Firefox 19 以降 */
+:focus::-moz-placeholder {
+    color: transparent;
+}
+
+.headerLogo{
+    padding:10px 0px 10px;
+}
+
+/*各ビュー固有
+-----------------------------------------------------------------------------------------*/
+/*ログイン画面*/
+body.Login #title {
+    padding-top: 40px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+body.Login #explain {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+body.Login #tbl01 {
+    margin-bottom: 40px;
+    width: 100%;
+    font-size: 14px;
+}
+
+body.Login #tbl01 th {
+    font-weight: normal;
+    padding:0px 0px 0px 25px;
+}
+
+body.Login #tbl01 tbody .inputType {
+    font-size:11px;
+    display: table-cell;
+    vertical-align: middle;
+    padding:0px 0px 0px 0px;
+    text-align:right;
+}
+
+body.Login #tbl01 tbody .inputField {
+    padding:0px 0px 0px 60px;
+}
+
+body.Login input[type=text], input[type=password], textarea {
+    box-sizing: border-box;
+    border: 1px solid #dfdfdf;
+    -webkit-box-shadow: inset 1px 4px 5px -5px rgba(0, 0, 0, 0.3);/*Chrome・Safari*/
+    box-shadow: inset 1px 4px 5px -5px rgba(0,0,0,0.3);
+    width:700px;
+    line-height:1.6;
+    padding:2px 7px 7px;
+}
+
+/*ログイン画面*/
