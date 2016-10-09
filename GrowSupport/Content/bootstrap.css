@@ -228,8 +228,8 @@ th {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: /*15 変更 TODO*/80px;
-  padding-right: /*15 変更 TODO*/80px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .container:before, .container:after {
   content: " ";
@@ -2297,8 +2297,7 @@ body {
   font-size: 16px;
   line-height: 1.42857;
   color: #333333;
-  /*background-color: #F9F9F9; 削除 TODO*/
-  background-color: #FFFFFF;/*追加 TODO*/
+  background-color: #F9F9F9;
 }
 
 input,
@@ -2420,7 +2419,6 @@ h6 .small,
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-    padding-top: 28px;/*追加 TODO*/
     margin-top: 22px;
     margin-bottom: 11px;
 }
@@ -2835,8 +2833,6 @@ pre code {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: /*15 変更 TODO*/80px;
-  padding-right: /*15 変更 TODO*/80px;
 }
 .container:before, .container:after {
   content: " ";
@@ -6023,10 +6019,8 @@ tbody.collapse.in {
 }
 
 .navbar-inverse {
-  /*background-color: #222222; 削除 TODO*/
-  background-color: #FFFFFF;/*追加 TODO*/
-  /*border-color: #090909; 削除 TODO*/
-  border-color: #eeeeee;/*追加 TODO*/
+  background-color: #222222;
+  border-color: #090909;
 }
 .navbar-inverse .navbar-brand {
   color: #eeeeee;
