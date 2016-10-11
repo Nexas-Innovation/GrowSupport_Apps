@@ -36,13 +36,13 @@
                 <td class="inputType"><span>【半角英数字】</span></td>
                 <td class="inputField">
                     <ul class="errJs">
-                        @*<li class="errTxtEmpty">【！】入力されていません</li>
+                        <li class="errTxtEmpty">【！】入力されていません</li>
                         <li class="errTxtChara01">【！】半角英数字・記号にて入力してください</li>
-                        <li class="errTxtChara04">【！】メールアドレスとして正しくありません</li>*@
+                        <li class="errTxtChara04">【！】メールアドレスとして正しくありません</li>
                     </ul>
                     <ul class="errSv"></ul>
                     @*<input type="text" name="mailAddr" placeholder="sample@example.com" autocomplete="off" value="" id="mailaddr" class="ipt01 zenNum2han">*@
-                    @Html.TextBoxFor(m => m.Id, new { tabindex = tabIndex++, placeholder = "sample@example.com", autocomplete = "off", @class = "ipt01 hanEisu" })
+                    @Html.TextBoxFor(m => m.Id, new { tabindex = tabIndex++, placeholder = "sample@example.com", autocomplete = "off", maxlength = "256", @class = "ipt01 hanEisu" })
                 </td>
             </tr>
             <tr>
@@ -50,12 +50,11 @@
                 <td class="inputType"></td>
                 <td class="inputField">
                     <ul class="errJs">
-                        @*<li class="errTxtEmpty">【！】入力されていません</li>
-                        <li class="errTxtChara01">【！】半角英数字・記号にて入力してください</li>*@
+                        <li class="errTxtEmpty">【！】入力されていません</li>
+                        <li class="errTxtChara01">【！】半角英数字・記号にて入力してください</li>
                     </ul>
                     <ul class="errSv"></ul>
-                    @*<input type="password" name="passwd" autocomplete="off" value="" id="passwd" class="ipt01 mb5">*@
-                    @Html.PasswordFor(m => m.Password, new { tabindex = tabIndex++, autocomplete = "off", @class = "ipt01 mb5" })
+                    @Html.PasswordFor(m => m.Password, new { tabindex = tabIndex++, autocomplete = "off", maxlength = "14", @class = "ipt01 mb5" })
                     <ul class="notes02">
                         <li class="fsC">※半角英数6～14文字以内で入力してください。</li>
                         <li>※英字は<span class="fwb">大文字</span>と<span class="fwb">小文字</span>を区別します。</li>

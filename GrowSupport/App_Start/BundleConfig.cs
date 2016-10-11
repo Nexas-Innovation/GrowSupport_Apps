@@ -28,7 +28,6 @@ namespace GrowUpNavi
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/custom_css").Include(
-                      "~/Content/custom/styles/bootstrap_custom.css",
                       "~/Content/custom/styles/general.css"));
         }
     }
