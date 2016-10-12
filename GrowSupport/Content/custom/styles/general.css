@@ -6,6 +6,7 @@
 body {
   background-color: #FFFFFF;
   padding-top: 0px;
+  -webkit-text-size-adjust: 100%;
 }
 
 .navbar-inverse {
@@ -88,48 +89,52 @@ footer.copy {
     width:950px;
 }
 
+li {
+    list-style:none;
+}
+
 #pageTop .pageTopInner a{
     margin:0 auto;
     /*text-align:right;*/
     width:950px;
 }
 
-/*#wrap .main {
+#wrap .main {
     margin: 0 auto;
-    padding: 30px 0 30px;
-    width: 950px;
-}*/
+    /*padding: 30px 0 30px;*/
+    /*width: 950px;*/
+}
 
 
 
 /*各ビュー固有
 -----------------------------------------------------------------------------------------*/
 /*ログイン画面*/
-body.Login #title {
+.Login #title {
     padding-top: 0px;
     font-weight: 600;
     letter-spacing: 3.5px;
     font-size:29px;
 }
 
-body.Login #explain {
+.Login #explain {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 15px;
 }
 
-body.Login #tbl01 {
+.Login #tbl01 {
     margin-bottom: 40px;
     width: 100%;
     font-size: 15px;
 }
 
-body.Login #tbl01 th {
+.Login #tbl01 th {
     font-weight: normal;
     padding:0px 0px 0px 25px;
 }
 
-body.Login #tbl01 tbody .inputType {
+.Login #tbl01 tbody .inputType {
     font-size:11px;
     display: table-cell;
     vertical-align: middle;
@@ -137,11 +142,11 @@ body.Login #tbl01 tbody .inputType {
     text-align:right;
 }
 
-body.Login #tbl01 tbody .inputField {
+.Login #tbl01 tbody .inputField {
     padding:0px 0px 0px 60px;
 }
 
-body.Login input[type=text], input[type=password], textarea {
+.Login input[type=text], input[type=password], textarea {
     box-sizing: border-box;
     border: 1px solid #dfdfdf;
     -webkit-box-shadow: inset 1px 4px 5px -5px rgba(0, 0, 0, 0.3);/*Chrome・Safari*/
@@ -150,5 +155,29 @@ body.Login input[type=text], input[type=password], textarea {
     line-height:1.6;
     padding:2px 7px 7px;
 }
+
+.Login .notes02{
+    text-indent:-13px;
+    margin-left:13px;
+}
+
+.Login #tbl01 .errJs{
+    color:#f15a29;
+    margin-bottom:5px;
+}
+
+.Login #tbl01 .errTxtEmpty,
+.Login #tbl01 .errTxtChara01,
+.Login #tbl01 .errTxtChara02,
+.Login #tbl01 .errTxtChara03,
+.Login #tbl01 .errTxtChara04,
+.Login #tbl01 .errTxtChara05 {
+    display: none;
+}
+
+.Login .mb5{
+    margin-bottom:5px;
+}
+
 
 /*ログイン画面*/
