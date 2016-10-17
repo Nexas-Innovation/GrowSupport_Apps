@@ -46,10 +46,11 @@
                         </div>
                     </div>
                 </div>
+    <hr class="header-hr"/>
             <div class="navbar-collapse collapse">
                 @Html.Partial("_LoginPartial")
             </div>
-    <div class="container body-content">
+    <div class="container body-content-container">
         @RenderBody()
         <div id="pageTop">
             <div class="pageTopInner">
@@ -59,9 +60,8 @@
             </div>
         </div>
     </div>
-    <hr />
     <footer>
-        <p class="copy"><small>Copyright &copy; @DateTime.Now.Year dev-kanage. All rights reserved.</small></p>
+        <p class="copy col-xs-12 col-sm-12 col-md-12 col-lg-12" style="white-space:nowrap;"><small>Copyright &copy; @DateTime.Now.Year dev-kanage. All rights reserved.</small></p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

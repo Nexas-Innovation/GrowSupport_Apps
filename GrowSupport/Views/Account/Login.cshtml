@@ -20,48 +20,61 @@
     var tabIndex = 0;
 }
 
-<h2 @*id="title"*@ style="white-space:nowrap; font-weight:600; font-size:29px; letter-spacing: 3.5px" class="col-md-12 col-xs-12"><span>ログイン</span></h2>
+<h2 style="white-space:nowrap; font-weight:600; font-size:29px; letter-spacing: 3.5px" class="col-xs-pull-12 col-sm-pull-12 col-md-pull-12 col-lg-pull-12"><span>ログイン</span></h2>
 @using (Html.BeginForm())
 {
-    <p @*id="explain"*@ style="white-space:nowrap; margin-top:20px; margin-bottom:20px; font-size:15px;" class="col-md-12 col-xs-12">登録したIDとパスワードを入力し、ログインしてください。</p>
-    <div class="row">
-        <div class="col-md-3 col-xs-12" style="white-space:nowrap;">
-            <span style="font-size:15px">メールアドレス</span>
+    <p style="white-space:nowrap; margin-top:20px; margin-bottom:20px; font-size:15px;" class="col-xs-pull-12 col-sm-pull-12 col-md-pull-12 col-lg-pull-12">登録したIDとパスワードを入力し、ログインしてください。</p>
+    <hr width="80%" align="left" class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="border:none;border-top:dotted 2px #ccc;height:1px;color:#FFFFFF; margin-left:0px;">
+    <div class="input-area">
+        <div class="row form-group">
+            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 control-label" style="white-space:nowrap; padding-top:5px; ">
+                <span style="font-size:15px;">メールアドレス</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                @Html.TextBoxFor(m => m.Id, new { tabindex = tabIndex++, placeholder = "sample@example.com", autocomplete = "off", maxlength = "256", @class = "ipt01 hanEisu form-control" })
+            </div>
         </div>
-        <div class="col-md-3 col-xs-12">
-            @Html.TextBoxFor(m => m.Id, new { tabindex = tabIndex++, placeholder = "sample@example.com", autocomplete = "off", maxlength = "256", @class = "ipt01 hanEisu" })
+        <hr style="border:none;border-top:dotted 2px #ccc;height:1px;color:#FFFFFF; margin-left:-10px;">
+        <div class="row form-group">
+            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 control-label" style="white-space:nowrap; padding-top:5px;">
+                <span style="font-size:15px;">パスワード</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                @Html.PasswordFor(m => m.Password, new { tabindex = tabIndex++, autocomplete = "off", maxlength = "14", @class = "ipt01 mb5 form-control" })
+            </div>
         </div>
     </div>
+    <hr style="border:none;border-top:dotted 2px #ccc;height:1px;color:#FFFFFF; margin-left:0px;">
         @*<table id="tbl01">
-            <tbody>
-                <tr>
-                    <th>ID（メールアドレス）</th>
-                    <td class="inputField">
-                        <ul class="errJs">
-                            <li class="errTxtEmpty">【！】入力されていません</li>
-                            <li class="errTxtChara01">【！】半角英数字・記号にて入力してください</li>
-                            <li class="errTxtChara04">【！】メールアドレスとして正しくありません</li>
-                        </ul>
-                        <ul class="errSv"></ul>
-                        <input type="text" name="mailAddr" placeholder="sample@example.com" autocomplete="off" value="" id="mailaddr" class="ipt01 zenNum2han">
-                        @Html.TextBoxFor(m => m.Id, new { tabindex = tabIndex++, placeholder = "sample@example.com", autocomplete = "off", maxlength = "256", @class = "ipt01 hanEisu" })
-                    </td>
-                </tr>
-                <tr>
-                    <th>パスワード</th>
-                    <td class="inputField">
-                        <ul class="errJs">
-                            <li class="errTxtEmpty">【！】入力されていません</li>
-                            <li class="errTxtChara01">【！】半角英数字・記号にて入力してください</li>
-                        </ul>
-                        <ul class="errSv"></ul>
-                        @Html.PasswordFor(m => m.Password, new { tabindex = tabIndex++, autocomplete = "off", maxlength = "14", @class = "ipt01 mb5" })
-                        <ul class="notes02">
-                            <li class="fsC">※半角英数6～14文字以内で入力してください。</li>
-                            <li>※英字は<span class="fwb">大文字</span>と<span class="fwb">小文字</span>を区別します。</li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>*@
-}
+                <tbody>
+                    <tr>
+                        <th>ID（メールアドレス）</th>
+                        <td class="inputField">
+                            <ul class="errJs">
+                                <li class="errTxtEmpty">【！】入力されていません</li>
+                                <li class="errTxtChara01">【！】半角英数字・記号にて入力してください</li>
+                                <li class="errTxtChara04">【！】メールアドレスとして正しくありません</li>
+                            </ul>
+                            <ul class="errSv"></ul>
+                            <input type="text" name="mailAddr" placeholder="sample@example.com" autocomplete="off" value="" id="mailaddr" class="ipt01 zenNum2han">
+                            @Html.TextBoxFor(m => m.Id, new { tabindex = tabIndex++, placeholder = "sample@example.com", autocomplete = "off", maxlength = "256", @class = "ipt01 hanEisu" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>パスワード</th>
+                        <td class="inputField">
+                            <ul class="errJs">
+                                <li class="errTxtEmpty">【！】入力されていません</li>
+                                <li class="errTxtChara01">【！】半角英数字・記号にて入力してください</li>
+                            </ul>
+                            <ul class="errSv"></ul>
+                            @Html.PasswordFor(m => m.Password, new { tabindex = tabIndex++, autocomplete = "off", maxlength = "14", @class = "ipt01 mb5" })
+                            <ul class="notes02">
+                                <li class="fsC">※半角英数6～14文字以内で入力してください。</li>
+                                <li>※英字は<span class="fwb">大文字</span>と<span class="fwb">小文字</span>を区別します。</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>*@
+        }
