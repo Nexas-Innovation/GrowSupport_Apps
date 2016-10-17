@@ -20,31 +20,41 @@
     var tabIndex = 0;
 }
 
-<h2 style="white-space:nowrap; font-weight:600; font-size:29px; letter-spacing: 3.5px" class="col-xs-pull-12 col-sm-pull-12 col-md-pull-12 col-lg-pull-12"><span>ログイン</span></h2>
+<h2 style="margin-top:15px; white-space:nowrap; font-weight:600; font-size:29px; letter-spacing: 3.5px" class="col-xs-pull-12 col-sm-pull-12 col-md-pull-12 col-lg-pull-12"><span>ログイン</span></h2>
 @using (Html.BeginForm())
 {
-    <p style="white-space:nowrap; margin-top:20px; margin-bottom:20px; font-size:15px;" class="col-xs-pull-12 col-sm-pull-12 col-md-pull-12 col-lg-pull-12">登録したIDとパスワードを入力し、ログインしてください。</p>
-    <hr width="80%" align="left" class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="border:none;border-top:dotted 2px #ccc;height:1px;color:#FFFFFF; margin-left:0px;">
     <div class="input-area">
+        <p style="margin-top:20px; margin-bottom:20px; font-size:15px; margin-left:-25px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">登録したIDとパスワードを入力し、ログインしてください。</p>
+        <hr align="left" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border:none;border-top:dotted 2px #ccc;height:1px;color:#FFFFFF; margin-left:-10px; margin-top:5px;">
         <div class="row form-group">
-            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 control-label" style="white-space:nowrap; padding-top:5px; ">
+            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 control-label" style="white-space:nowrap; padding-top:5px; padding-bottom:8px;">
                 <span style="font-size:15px;">メールアドレス</span>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                @Html.TextBoxFor(m => m.Id, new { tabindex = tabIndex++, placeholder = "sample@example.com", autocomplete = "off", maxlength = "256", @class = "ipt01 hanEisu form-control" })
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-md-offset-1 col-lg-offset-1">
+                @Html.TextBoxFor(m => m.Id, new { tabindex = tabIndex++, placeholder = "sample@example.com", autocomplete = "off", maxlength = "256", @class = "hanEisu form-control" })
             </div>
         </div>
-        <hr style="border:none;border-top:dotted 2px #ccc;height:1px;color:#FFFFFF; margin-left:-10px;">
+        <hr aling="left" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border:none; border-top:dotted 2px #ccc; height:1px; color:#FFFFFF; margin-left:-10px; margin-top:8px;">
         <div class="row form-group">
-            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 control-label" style="white-space:nowrap; padding-top:5px;">
+            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 control-label" style="white-space:nowrap; padding-top:5px; padding-bottom:8px;">
                 <span style="font-size:15px;">パスワード</span>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                @Html.PasswordFor(m => m.Password, new { tabindex = tabIndex++, autocomplete = "off", maxlength = "14", @class = "ipt01 mb5 form-control" })
+                @Html.PasswordFor(m => m.Password, new { tabindex = tabIndex++, autocomplete = "off", maxlength = "14", @class = "form-control" })
             </div>
+            @*<div class="col-md-5 col-lg-5">*@
+            @*</div>*@
+        </div>
+        <hr align="left" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border:none;border-top:dotted 2px #ccc;height:1px;color:#FFFFFF; margin-left:-10px; margin-top:10px;">
+        <div class="" style="display:inline-block; text-align:center; width:100%">
+            <span>
+                <input type="checkbox" id="rememberme" name="rememberme" />
+            </span>
+            <span>
+                <label for="rememberme" style="font-weight:normal; font-size:15px;">次回から自動でログインする</label>
+            </span>
         </div>
     </div>
-    <hr style="border:none;border-top:dotted 2px #ccc;height:1px;color:#FFFFFF; margin-left:0px;">
         @*<table id="tbl01">
                 <tbody>
                     <tr>
