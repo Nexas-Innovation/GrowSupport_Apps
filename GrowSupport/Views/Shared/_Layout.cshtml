@@ -27,7 +27,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta name="description" content="ログイン画面です。ID・パスワードを入力してログインしてください。">
     <meta name="keywords" content="">
     <meta name="Robots" content="NOINDEX,NOFOLLOW">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,14 +37,6 @@
 
 </head>
 <body class="@(actionName)">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <div id="wrap">
                     <div class="main">
                         <div class="headerLogo">
@@ -55,17 +46,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("ホーム", "Index", "Home")</li>
-                    <li>@Html.ActionLink("詳細", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡先", "Contact", "Home")</li>
-                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
-        </div>
-    </div>
     <div class="container body-content">
         @RenderBody()
         <div id="pageTop">
@@ -75,11 +58,11 @@
                 </a>
             </div>
         </div>
-        <hr />
-        <footer>
-            <p class="copy"><small>Copyright &copy; @DateTime.Now.Year dev-kanage. All rights reserved.</small></p>
-        </footer>
     </div>
+    <hr />
+    <footer>
+        <p class="copy"><small>Copyright &copy; @DateTime.Now.Year dev-kanage. All rights reserved.</small></p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
