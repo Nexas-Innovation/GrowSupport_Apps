@@ -79,6 +79,11 @@ footer.copy {
     padding:15px 0px 0px 15px;
 }
 
+.headerLogo img{
+    max-width:220px;
+    height:auto;
+}
+
 #pageTop {
     margin-bottom: 20px;
 }

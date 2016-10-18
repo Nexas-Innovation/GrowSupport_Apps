@@ -23,9 +23,12 @@ namespace GrowUpNavi
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/css/bootstrap").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/css/fontawesome").Include(
+                      "~/Content/font-awesome.css"));
 
             bundles.Add(new StyleBundle("~/Content/custom_css").Include(
                       "~/Content/custom/styles/general.css"));
