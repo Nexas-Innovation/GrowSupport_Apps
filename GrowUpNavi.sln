@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowSupport", "GrowSupport\GrowSupport.csproj", "{91E4D3AA-1118-44C1-BFD1-DC36C5E989BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowUpNavi", "GrowUpNavi\GrowUpNavi.csproj", "{91E4D3AA-1118-44C1-BFD1-DC36C5E989BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
